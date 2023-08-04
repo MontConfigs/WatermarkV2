@@ -1,41 +1,76 @@
-# Compiled Lua sources
-luac.out
-
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
-
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
+local function createGui(parent)
+	--Frame1--
+	local Frame1 = Instance.new("Frame",parent)
+	Frame1["BackgroundTransparency"] = 0.5
+	Frame1["Position"] = UDim2.new(0.0481818169, 0, 0.129581153, 0)
+	Frame1["BorderColor3"] = Color3.new(0.313726, 0.0196078, 0.333333)
+	Frame1["Size"] = UDim2.new(0, 70, 0, 25)
+	Frame1["BorderSizePixel"] = 0
+	Frame1["BackgroundColor3"] = Color3.new(0.0901961, 0, 0.133333)
+	----Frame1----
+	--UICorner2--
+	local UICorner2 = Instance.new("UICorner",Frame1)
+	----UICorner2----
+	--Script3--
+	local Script3 = Instance.new("Script",Frame1)
+	----Script3----
+	--TextLabel4--
+	local TextLabel4 = Instance.new("TextLabel",Frame1)
+	TextLabel4["TextColor3"] = Color3.new(1, 1, 1)
+	TextLabel4["BorderColor3"] = Color3.new(0, 0, 0)
+	TextLabel4["Text"] = "MONT"
+	TextLabel4["Font"] = Enum.Font.FredokaOne
+	TextLabel4["BackgroundTransparency"] = 1
+	TextLabel4["Position"] = UDim2.new(0.0714285746, 0, 0.119999997, 0)
+	TextLabel4["TextSize"] = 16
+	TextLabel4["Size"] = UDim2.new(0, 59, 0, 19)
+	TextLabel4["BorderSizePixel"] = 0
+	TextLabel4["BackgroundColor3"] = Color3.new(1, 1, 1)
+	----TextLabel4----
+	--UIStroke5--
+	local UIStroke5 = Instance.new("UIStroke",Frame1)
+	UIStroke5["Color"] = Color3.new(0.54902, 0, 1)
+	UIStroke5["Thickness"] = 2
+	----UIStroke5----
+	--UIGradient6--
+	local UIGradient6 = Instance.new("UIGradient",UIStroke5)
+	----UIGradient6----
+	spawn(function() --Source for Script3
+		local script = Script3
+		local UIS = game:GetService('UserInputService')
+		local frame = script.Parent
+		local dragToggle = nil
+		local dragSpeed = 0.25
+		local dragStart = nil
+		local startPos = nil
+		
+		local function updateInput(input)
+			local delta = input.Position - dragStart
+			local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+				startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+			game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+		end
+		
+		frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+				dragToggle = true
+				dragStart = input.Position
+				startPos = frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+		
+		UIS.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				if dragToggle then
+					updateInput(input)
+				end
+			end
+		end)
+	end)
+end
+createGui(game.CoreGui) --coregui by default you should but change it
