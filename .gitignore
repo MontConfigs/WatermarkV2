@@ -1,42 +1,46 @@
 local function createGui(parent)
-	--Frame1--
-	local Frame1 = Instance.new("Frame",parent)
-	Frame1["BackgroundTransparency"] = 0.5
-	Frame1["Position"] = UDim2.new(0.0481818169, 0, 0.129581153, 0)
-	Frame1["BorderColor3"] = Color3.new(0.313726, 0.0196078, 0.333333)
-	Frame1["Size"] = UDim2.new(0, 70, 0, 25)
-	Frame1["BorderSizePixel"] = 0
-	Frame1["BackgroundColor3"] = Color3.new(0.0901961, 0, 0.133333)
-	----Frame1----
-	--UICorner2--
-	local UICorner2 = Instance.new("UICorner",Frame1)
-	----UICorner2----
-	--Script3--
-	local Script3 = Instance.new("Script",Frame1)
-	----Script3----
-	--TextLabel4--
-	local TextLabel4 = Instance.new("TextLabel",Frame1)
-	TextLabel4["TextColor3"] = Color3.new(1, 1, 1)
-	TextLabel4["BorderColor3"] = Color3.new(0, 0, 0)
-	TextLabel4["Text"] = "MONT"
-	TextLabel4["Font"] = Enum.Font.FredokaOne
-	TextLabel4["BackgroundTransparency"] = 1
-	TextLabel4["Position"] = UDim2.new(0.0714285746, 0, 0.119999997, 0)
-	TextLabel4["TextSize"] = 16
-	TextLabel4["Size"] = UDim2.new(0, 59, 0, 19)
-	TextLabel4["BorderSizePixel"] = 0
-	TextLabel4["BackgroundColor3"] = Color3.new(1, 1, 1)
-	----TextLabel4----
-	--UIStroke5--
-	local UIStroke5 = Instance.new("UIStroke",Frame1)
-	UIStroke5["Color"] = Color3.new(0.54902, 0, 1)
-	UIStroke5["Thickness"] = 2
-	----UIStroke5----
-	--UIGradient6--
-	local UIGradient6 = Instance.new("UIGradient",UIStroke5)
-	----UIGradient6----
-	spawn(function() --Source for Script3
-		local script = Script3
+	--ScreenGui1--
+	local ScreenGui1 = Instance.new("ScreenGui",parent)
+	ScreenGui1["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+	----ScreenGui1----
+	--Frame2--
+	local Frame2 = Instance.new("Frame",ScreenGui1)
+	Frame2["BackgroundTransparency"] = 0.6100000143051147
+	Frame2["Position"] = UDim2.new(0.0481818169, 0, 0.129581153, 0)
+	Frame2["BorderColor3"] = Color3.new(0.313726, 0.0196078, 0.333333)
+	Frame2["Size"] = UDim2.new(0, 70, 0, 25)
+	Frame2["BorderSizePixel"] = 0
+	Frame2["BackgroundColor3"] = Color3.new(0.0901961, 0, 0.133333)
+	----Frame2----
+	--UICorner3--
+	local UICorner3 = Instance.new("UICorner",Frame2)
+	----UICorner3----
+	--Script4--
+	local Script4 = Instance.new("Script",Frame2)
+	----Script4----
+	--TextLabel5--
+	local TextLabel5 = Instance.new("TextLabel",Frame2)
+	TextLabel5["TextColor3"] = Color3.new(1, 1, 1)
+	TextLabel5["BorderColor3"] = Color3.new(0, 0, 0)
+	TextLabel5["Text"] = "MONT"
+	TextLabel5["Font"] = Enum.Font.FredokaOne
+	TextLabel5["BackgroundTransparency"] = 1
+	TextLabel5["Position"] = UDim2.new(0.0714285746, 0, 0.119999997, 0)
+	TextLabel5["TextSize"] = 16
+	TextLabel5["Size"] = UDim2.new(0, 59, 0, 19)
+	TextLabel5["BorderSizePixel"] = 0
+	TextLabel5["BackgroundColor3"] = Color3.new(1, 1, 1)
+	----TextLabel5----
+	--UIStroke6--
+	local UIStroke6 = Instance.new("UIStroke",Frame2)
+	UIStroke6["Color"] = Color3.new(0.54902, 0, 1)
+	UIStroke6["Thickness"] = 2
+	----UIStroke6----
+	--UIGradient7--
+	local UIGradient7 = Instance.new("UIGradient",UIStroke6)
+	----UIGradient7----
+	spawn(function() --Source for Script4
+		local script = Script4
 		local UIS = game:GetService('UserInputService')
 		local frame = script.Parent
 		local dragToggle = nil
